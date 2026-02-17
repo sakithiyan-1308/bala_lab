@@ -297,9 +297,9 @@ async def list_users(admin=Depends(require_admin)):
         for u in users
     ]
 
-@api_router.get("/")
-async def root():
-    return {"message": "Bala Lab API is running"}
+@app.get("/")
+async def health_check():
+    return {"status": "online", "message": "Bala Lab Server is running"}
 
 # Include router
 app.include_router(api_router)
