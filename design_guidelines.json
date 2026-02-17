@@ -1,0 +1,153 @@
+{
+  "identity": {
+    "name": "Bala Lab",
+    "mission": "Deliver precise, secure, and instant laboratory results with a sterile, professional interface.",
+    "aesthetic": "Clinical Precision",
+    "emotional_tone": "Trustworthy, Sterile, Efficient, Private",
+    "theme_mode": "light",
+    "design_archetype": "Swiss & High-Contrast"
+  },
+  "typography": {
+    "font_family_heading": "Manrope",
+    "font_family_body": "Inter",
+    "heading_weights": [600, 700],
+    "body_weights": [400, 500],
+    "scale": {
+      "h1": "text-4xl md:text-5xl font-bold tracking-tight",
+      "h2": "text-3xl font-semibold tracking-tight",
+      "h3": "text-2xl font-semibold",
+      "body": "text-base leading-relaxed",
+      "caption": "text-sm text-muted-foreground",
+      "label": "text-xs font-bold uppercase tracking-wider text-muted-foreground"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": "#0F172A",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#F1F5F9",
+      "secondary_foreground": "#0F172A",
+      "accent": "#0EA5E9",
+      "accent_foreground": "#FFFFFF",
+      "background": "#FFFFFF",
+      "surface": "#F8FAFC",
+      "border": "#E2E8F0",
+      "muted": "#94A3B8",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444"
+    },
+    "usage_rules": {
+      "gradients": "FORBIDDEN. Use flat colors only.",
+      "shadows": "Minimal. 'shadow-sm' for cards, 'shadow-md' for floating elements only.",
+      "text_contrast": "Always use 'text-slate-900' for headings and 'text-slate-600' for body. Never use pure black."
+    }
+  },
+  "layout_strategies": {
+    "landing_page": {
+      "structure": "Split Hero or Centered Minimal",
+      "hero_alignment": "Left aligned text, Right aligned visual",
+      "components": [
+        "Hero Section with clear value prop",
+        "Role Selection Cards (Admin vs User)",
+        "Trust Indicators (Clean icons)"
+      ]
+    },
+    "dashboard_admin": {
+      "structure": "Sidebar Navigation + High Density Data Grid",
+      "grid_mode": "Mode B (High Density)",
+      "key_sections": [
+        "Upload Area (Drag & Drop zone)",
+        "Recent Uploads Table (Sortable)",
+        "User Assignment Modal"
+      ]
+    },
+    "dashboard_user": {
+      "structure": "Container-based Layout",
+      "grid_mode": "Mode A (Tetris Grid for visual interest)",
+      "key_sections": [
+        "Recent Reports (Card or List view)",
+        "Preview Modal (High fidelity image viewer)",
+        "Download Actions"
+      ]
+    }
+  },
+  "components": {
+    "buttons": {
+      "style": "pill",
+      "default": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
+      "secondary": "bg-white border border-input hover:bg-accent hover:text-accent-foreground",
+      "ghost": "hover:bg-accent hover:text-accent-foreground"
+    },
+    "cards": {
+      "style": "minimal_border",
+      "properties": "bg-white border border-border/60 shadow-sm rounded-xl p-6"
+    },
+    "inputs": {
+      "style": "clean",
+      "properties": "h-10 rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    },
+    "tables": {
+      "style": "striped",
+      "header_style": "bg-muted/50 text-muted-foreground font-medium"
+    },
+    "modals": {
+      "style": "clean_backdrop",
+      "properties": "bg-background p-6 rounded-lg shadow-lg border border-border"
+    }
+  },
+  "assets": {
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px or 2px, consistent"
+    },
+    "images": {
+      "landing_hero": {
+        "url": "https://images.unsplash.com/photo-1579154204601-01588f351e67?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Lab professional with digital interface",
+        "description": "Use as main hero image or split-screen visual"
+      },
+      "auth_background": {
+        "url": "https://images.unsplash.com/photo-1581056771085-3ce30d907416?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Clean lab shelf with bottles",
+        "description": "Use for login page side panel or subtle background"
+      },
+      "user_dashboard_placeholder": {
+        "url": "https://images.unsplash.com/photo-1582719299074-be127353065f?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Lab equipment printer",
+        "description": "Fallback for empty states"
+      }
+    }
+  },
+  "accessibility": {
+    "rules": [
+      "Ensure 4.5:1 contrast for normal text",
+      "Interactive elements must have :focus-visible states",
+      "All images must have alt text",
+      "Use semantic HTML (main, section, nav)",
+      "Form inputs must have associated labels"
+    ]
+  },
+  "animation": {
+    "style": "Micro-interactions only",
+    "transition": "transition-all duration-200 ease-in-out",
+    "hover_lift": "hover:-translate-y-1 hover:shadow-md"
+  },
+  "instructions_to_main_agent": [
+    "Use 'lucide-react' for all icons.",
+    "Implement a strict 'Role-Based Access Control' visual cue (e.g., 'Admin' badge).",
+    "For the Landing Page, keep it extremely clean: Header (Logo + Login Btns), Hero (Headline + Image), Footer.",
+    "For Admin Dashboard, prioritize data density. Use a table for 'Uploaded Reports'.",
+    "For User Dashboard, prioritize clarity. Make 'Download' and 'View' buttons prominent.",
+    "Do NOT use gradients. Use solid colors and subtle borders.",
+    "Use 'sonner' for toast notifications (e.g., 'File uploaded successfully').",
+    "Ensure the 'Upload' component supports drag-and-drop visually."
+  ],
+  "universal_guidelines": [
+    "Dark colors look good when used independently without gradients.",
+    "Don't make generic centered layouts.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "NEVER use AI assistant emojis."
+  ]
+}

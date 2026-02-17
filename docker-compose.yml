@@ -1,0 +1,42 @@
+
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:6.0
+    container_name: balalab-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - balalab-network
+    restart: unless-stopped
+
+  # Backend Service
+  backend:
+    build: 
+      context: ./backend
+    container_name: balalab-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017
+      - DB_NAME=balalab_db
+      - JWT_SECRET=dev_secret_key_123
+      - CORS_ORIGINS=http://localhost:3000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend:/app
+    networks:
+      - balalab-network
+    restart: unless-stopped
+
+networks:
+  balalab-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
