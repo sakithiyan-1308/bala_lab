@@ -297,20 +297,28 @@ async def list_users(admin=Depends(require_admin)):
         for u in users
     ]
 
+@api_router.get("/")
+async def root():
+    return {"message": "Bala Lab API is running"}
+
+# ---- Middleware ----
+
+cors_origins = [o.strip() for o in os.environ.get('CORS_ORIGINS', '*').split(',') if o.strip()]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=cors_origins,
+    allow_credentials=False if cors_origins == ["*"] else True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 async def health_check():
     return {"status": "online", "message": "Bala Lab Server is running"}
 
 # Include router
 app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
