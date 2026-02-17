@@ -3,7 +3,7 @@ import api from '../lib/api';
 import { Button, Input, Card } from '../components/ui';
 import { useAuth } from '../hooks/useAuth';
 import { toast } from 'sonner';
-import { FileUp, FileText, Trash2, LogOut, User } from 'lucide-react';
+import { FileUp, Trash2, LogOut } from 'lucide-react';
 
 export const AdminDashboard = () => {
   const [reports, setReports] = useState([]);

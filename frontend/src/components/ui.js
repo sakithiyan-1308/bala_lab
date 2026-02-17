@@ -1,5 +1,3 @@
-import React from 'react';
-import { useAuth } from '../hooks/useAuth';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
